@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'git clone https://github.com/carlossg/jenkinsfile-runner-google-cloud-run-example.git'
+                sh 'git clone https://github.com/carlossg/jenkinsfile-runner-example.git'
                 echo 'Hello world!'
-                sh 'mvn -Duser.home=/tmp clean package'
+                sh 'cd jenkinsfile-runner-example && mvn -Duser.home=/tmp clean package'
             }
         }
     }
