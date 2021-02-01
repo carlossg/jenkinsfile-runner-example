@@ -19,7 +19,6 @@ It can be directly ran with:
 ```
 docker run -ti --rm \
     -v $(pwd)/Jenkinsfile:/workspace/Jenkinsfile \
-    -v `pwd`/jenkins.yaml:/usr/share/jenkins/ref/casc/jenkins.yaml \
     -v ~/.m2/repository/:/root/.m2/repository/ \
     -w /workspace jenkinsfilerunner-example
 ```

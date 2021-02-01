@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y git
 COPY --from=maven /usr/share/maven /usr/share/maven
 RUN ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
+# CasC
+COPY jenkins.yaml /usr/share/jenkins/ref/casc/jenkins.yaml
+
 # Plugin installation
 ENV JENKINS_VERSION=2.235.4
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
