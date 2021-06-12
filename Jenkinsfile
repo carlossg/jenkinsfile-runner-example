@@ -10,6 +10,7 @@ pipeline {
                 echo "VARIABLE1: ${VARIABLE1}"
                 echo "VARIABLE2: ${VARIABLE2}"
                 withMaven {
+                    sh 'false'
                     sh 'mvn verify'
                 }
             }
@@ -19,13 +20,13 @@ pipeline {
         success {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
-            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins succeeded: $(git rev-parse HEAD)\n![Party cat](https://media.giphy.com/media/d77o7i3tHnKda/source.gif)"
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins succeeded: $(git rev-parse HEAD)\n\n![Party cat](https://media.giphy.com/media/d77o7i3tHnKda/source.gif)"
             '''
         }
         failure {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
-            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: $(git rev-parse HEAD)\n![Sad cat](https://media.giphy.com/media/CM1rHbKDMH2BW/source.gif)"
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: $(git rev-parse HEAD)\n\n![Sad cat](https://media.giphy.com/media/CM1rHbKDMH2BW/source.gif)"
             '''
         }
     }
