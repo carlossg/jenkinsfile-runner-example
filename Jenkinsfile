@@ -28,6 +28,18 @@ $(cat mvn.log)
 \\`\\`\\`"
             '''
         }
+        unstable {
+            sh '''#!/bin/bash
+            git checkout ${BRANCH_NAME}
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: $(git rev-parse HEAD)
+            
+![Grumpy kitten](https://media.giphy.com/media/TcOtWd4dmushy/source.gif)
+
+\\`\\`\\`
+$(cat mvn.log)
+\\`\\`\\`"
+            '''
+        }
         failure {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
