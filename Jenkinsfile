@@ -19,13 +19,13 @@ pipeline {
         success {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
-            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins succeeded: TEST $(git rev-parse HEAD)"
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins succeeded: TEST2 $(git rev-parse HEAD)"
             '''
         }
         failure {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
-            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: TEST $(git rev-parse HEAD)"
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: TEST2 $(git rev-parse HEAD)"
             '''
         }
     }
