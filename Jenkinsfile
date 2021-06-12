@@ -10,6 +10,7 @@ pipeline {
                 echo "VARIABLE1: ${VARIABLE1}"
                 echo "VARIABLE2: ${VARIABLE2}"
                 withMaven {
+                    sh 'false'
                     sh 'mvn verify'
                 }
             }
