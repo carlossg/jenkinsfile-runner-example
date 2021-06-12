@@ -19,13 +19,13 @@ pipeline {
         success {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
-            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins succeeded: $(git rev-parse HEAD)"
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins succeeded: $(git rev-parse HEAD)\n\n![Party kitten](https://media.giphy.com/media/d77o7i3tHnKda/source.gif)"
             '''
         }
         failure {
             sh '''#!/bin/bash
             git checkout ${BRANCH_NAME}
-            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: $(git rev-parse HEAD)"
+            gh pr review "${BRANCH_NAME/PR-/}" --comment -b "Jenkins failed: $(git rev-parse HEAD)\n\n![Sad kitten](https://media.giphy.com/media/CM1rHbKDMH2BW/source.gif)"
             '''
         }
     }
