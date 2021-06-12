@@ -23,9 +23,9 @@ pipeline {
             
             ![Party kitten](https://media.giphy.com/media/d77o7i3tHnKda/source.gif)
             
-            \\`\\`\\`
-            $(cat mvn.log)
-            \\`\\`\\`"
+\\`\\`\\`
+$(cat mvn.log)
+\\`\\`\\`"
             '''
         }
         failure {
@@ -35,9 +35,9 @@ pipeline {
             
             ![Sad kitten](https://media.giphy.com/media/CM1rHbKDMH2BW/source.gif)
 
-            \\`\\`\\`
-            $(cat mvn.log)
-            \\`\\`\\`"
+\\`\\`\\`
+$(cat mvn.log)
+\\`\\`\\`"
             '''
         }
     }
